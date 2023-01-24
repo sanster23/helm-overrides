@@ -1,0 +1,32 @@
+name: Build and Publish Image
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+env:
+  MY_ROLE: my-role-from-yaml
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Go 1.18
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.18
+        id: go
+
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v2
+      
+      - name: Show repo env
+        run: |
+          echo ${{ env.ROLE_NAME }}
+          echo "--- ${{ env.MY_ROLE }}"
+          echo $ROLE_NAME
+
+      
