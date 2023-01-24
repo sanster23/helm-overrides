@@ -3,10 +3,10 @@ name: Build and Publish Image
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 env:
   MY_ROLE: my-role-from-yaml
 jobs:
@@ -25,7 +25,7 @@ jobs:
       
       - name: Show repo env
         run: |
-          echo ${{ env.ROLE_NAME }}
+          echo ${{ vars.ROLE_NAME }}
           echo "--- ${{ env.MY_ROLE }}"
           echo $ROLE_NAME
 
