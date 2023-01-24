@@ -3,10 +3,10 @@ name: Build and Publish Image
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 env:
   MY_ROLE: my-role-from-yaml
 jobs:
